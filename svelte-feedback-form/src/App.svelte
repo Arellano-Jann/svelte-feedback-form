@@ -1,6 +1,7 @@
 <script>
 	// import { FeedbackList, FeedbackItem } from './components/imports.svelte'; // might be wrong?
 	import FeedbackList from './components/FeedbackList.svelte';
+	import FeedbackStats from './components/FeedbackStats.svelte';
 
 	let feedback = [
 	{
@@ -31,7 +32,6 @@
 
 <main class="container">
 	<h1>Feedback</h1>
-	<h3>Total Reviews: {count}</h3>
-	<h3>Average Rating: {average}</h3>
+	<FeedbackStats {count} {average} />
 	<FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
 </main>
