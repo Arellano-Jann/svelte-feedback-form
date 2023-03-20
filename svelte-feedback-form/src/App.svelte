@@ -6,7 +6,11 @@
 	let color = 'blue';
 	let showText = true;
 
-	
+	let users = [
+		{ name: 'Bob', id: 0 },
+		{ name: 'John', id: 2},
+		{ name: 'Alice', id: 1 },
+	]
 	  
 	const changeColor = () => {
 		color = color === 'blue' ? 'red' : 'blue';
@@ -23,6 +27,10 @@
 		<p>Other text in an else statement</p>
 	{/if}
 	<button on:click={changeColor}>Click me!</button>
+
+	{#each users as user (user.id)}
+		<h3>{user.id}: {user.name}</h3>
+	{/each}
 </main>
 
 <style>
