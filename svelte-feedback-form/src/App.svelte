@@ -20,12 +20,18 @@
 	}
 	];
 
+	$: count = feedback.length;
+	$: average = feedback.reduce((a, {rating}) => a + rating, 0) / count;
+
 	const deleteFeedback = (e) => {
-		console.log(e.detail);
+		const itemId = e.detail;
+		feedback = feedback.filter((item) => item.id != itemId)
 	}
 </script>
 
 <main class="container">
 	<h1>Feedback</h1>
+	<h3>Total Reviews: {count}</h3>
+	<h3>Average Rating: {average}</h3>
 	<FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
 </main>
