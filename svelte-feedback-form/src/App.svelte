@@ -4,14 +4,24 @@
 	let last = 'App';
 	$: legal = first + ' ' + last;
 	let color = 'blue';
+	let showText = true;
+
+	
+	  
 	const changeColor = () => {
 		color = color === 'blue' ? 'red' : 'blue';
+		showText = !showText;
 	}
 </script>
 
 <main>
 	<h1 style="color: {color}">Hello {name}! This is a {legal}</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	{#if showText}
+		<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+	{:else}
+		<p>Other text in an else statement</p>
+	{/if}
 	<button on:click={changeColor}>Click me!</button>
 </main>
 
