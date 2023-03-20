@@ -5,6 +5,7 @@
 	$: legal = first + ' ' + last;
 	let color = 'blue';
 	let showText = true;
+	let count = 3;
 
 	let users = [
 		{ name: 'Bob', id: 0 },
@@ -12,9 +13,10 @@
 		{ name: 'Alice', id: 1 },
 	]
 	  
-	const changeColor = () => {
+	const toggleButton = () => {
 		color = color === 'blue' ? 'red' : 'blue';
 		showText = !showText;
+		users = [...users, {name: 'New User'+count, id: count++}]
 	}
 </script>
 
@@ -26,7 +28,7 @@
 	{:else}
 		<p>Other text in an else statement</p>
 	{/if}
-	<button on:click={changeColor}>Click me!</button>
+	<button on:click={toggleButton}>Click me!</button>
 
 	{#each users as user (user.id)}
 		<h3>{user.id}: {user.name}</h3>
