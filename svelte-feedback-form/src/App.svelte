@@ -19,10 +19,13 @@
 		text: 'Test123'
 	}
 	];
+
+	const deleteFeedback = (e) => {
+		console.log(e.detail);
+	}
 </script>
 
-<main>
-	<FeedbackList {feedback} />
+<main class="container">
 	<h1>Feedback</h1>
-	<p>Thank you for your feedback!</p>
+	<FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
 </main>
