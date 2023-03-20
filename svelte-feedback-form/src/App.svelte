@@ -1,10 +1,18 @@
 <script>
 	export let name;
+	let first = 'Svelte';
+	let last = 'App';
+	$: legal = first + ' ' + last;
+	let color = 'blue';
+	const changeColor = () => {
+		color = color === 'blue' ? 'red' : 'blue';
+	}
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
+	<h1 style="color: {color}">Hello {name}! This is a {legal}</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<button on:click={changeColor}>Click me!</button>
 </main>
 
 <style>
