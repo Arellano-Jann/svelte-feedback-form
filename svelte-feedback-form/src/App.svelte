@@ -2,6 +2,7 @@
 	// import { FeedbackList, FeedbackItem } from './components/imports.svelte'; // might be wrong?
 	import FeedbackList from './components/FeedbackList.svelte';
 	import FeedbackStats from './components/FeedbackStats.svelte';
+	import FeedbackForm from './components/FeedbackForm.svelte';
 
 	let feedback = [
 	{
@@ -32,6 +33,7 @@
 
 <main class="container">
 	<h1>Feedback</h1>
+	<FeedbackForm />
 	<FeedbackStats {count} {average} />
 	<FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
 </main>

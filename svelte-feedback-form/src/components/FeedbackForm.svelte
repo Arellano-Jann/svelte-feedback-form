@@ -1,0 +1,42 @@
+<script>
+    
+</script>
+
+<form action="">
+    <div class="input-group">
+        <input type="text"
+        placeholder="we are DESPERATE for ur review">
+        <button>Send</button>
+    </div>
+</form>
+
+<style>
+  button {
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .primary {
+    background-color: #202142;
+  }
+  .secondary {
+    background: #ff6a95;
+  }
+  button:hover {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+  button:disabled{
+    background-color: #cccccc;
+    color: #333;
+    cursor:auto;
+  }
+  button:disabled:hover{
+    transform:scale(1);
+    opacity: 1;
+  }
+</style>
