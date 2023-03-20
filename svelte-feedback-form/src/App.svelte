@@ -1,5 +1,6 @@
 <script>
-	import { FeedbackList, FeedbackItem } from './components/*'; // might be wrong?
+	// import { FeedbackList, FeedbackItem } from './components/imports.svelte'; // might be wrong?
+	import FeedbackList from './components/FeedbackList.svelte';
 
 	let feedback = [
 	{
