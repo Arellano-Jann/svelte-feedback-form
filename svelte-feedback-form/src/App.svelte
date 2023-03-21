@@ -4,28 +4,28 @@
 	import FeedbackStats from './components/FeedbackStats.svelte';
 	import FeedbackForm from './components/FeedbackForm.svelte';
 
-	let feedback = [{
-		id: 1,
-		rating: 10,
-		text: 'Test1'
-	},
-	{
-		id: 2,
-		rating: 9,
-		text: 'Test12'
-	},
-	{
-		id: 3,
-		rating: 8,
-		text: 'Test123'
-	}
-	];
+	// let feedback = [{
+	// 	id: 1,
+	// 	rating: 10,
+	// 	text: 'Test1'
+	// },
+	// {
+	// 	id: 2,
+	// 	rating: 9,
+	// 	text: 'Test12'
+	// },
+	// {
+	// 	id: 3,
+	// 	rating: 8,
+	// 	text: 'Test123'
+	// }
+	// ];
 
-	const addFeedback = (e) => {
-		console.log(e.detail)
-		const newFeedback = e.detail;
-		feedback = [...feedback, newFeedback];
-	}
+	// const addFeedback = (e) => {
+	// 	console.log(e.detail)
+	// 	const newFeedback = e.detail;
+	// 	feedback = [...feedback, newFeedback];
+	// }
 	// const deleteFeedback = (e) => {
 	// 	const itemId = e.detail;
 	// 	feedback = feedback.filter((item) => item.id != itemId)
@@ -34,8 +34,10 @@
 
 <main class="container">
 	<h1>Feedback</h1>
-	<FeedbackForm on:add-feedback={addFeedback} />
+	<FeedbackForm />
 	<FeedbackStats />
 	<FeedbackList />
+	<!-- <FeedbackForm on:add-feedback={addFeedback} />
+	<FeedbackStats {count} {average} /> -->
 	<!-- <FeedbackList {feedback} on:delete-feedback={deleteFeedback} /> -->
 </main>
