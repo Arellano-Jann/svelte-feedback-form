@@ -28,7 +28,7 @@
     const handleSubmit = () => {
         if (text.trim().length > threshold){
             const newFeedback = {
-                id: uuidv4,
+                id: uuidv4(),
                 text: text, // same as "text,"
                 rating: +rating, // makes rating a number instead of a string
             }
