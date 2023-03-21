@@ -1,21 +1,39 @@
 <script>
+    import {v4 as uuidv4} from 'uuid';
+    import { createEventDispatcher } from 'svelte';
     import Card from "./Card.svelte";
     import Button from "./Button.svelte";
+    import RatingSelect from "./RatingSelect.svelte";
+
+    const dispatch = createEventDispatcher();
 
     let text = '';
     let rating = 10;
     let btnDisabled = true;
-    let threshhold = 10;
+    let threshold = 10;
     let message = '';
 
     const handleInput = () => {
-        if (text.trim().length <= threshhold){
-            message = `Minimum of ${threshhold} characters`;
+        if (text.trim().length <= threshold){
+            message = `Minimum of ${threshold} characters`;
             btnDisabled = true;
         }
         else{
             message = null;
             btnDisabled = false;
+        }
+    }
+    const handleSelect = e => rating = e.detail;
+    
+    const handleSubmit = () => {
+        if (text.trim().length > threshold){
+            const newFeedback = {
+                id: uuidv4,
+                text: text, // same as "text,"
+                rating: +rating, // makes rating a number instead of a string
+            }
+            dispatch('add-feedback', newFeedback);
+            text = '';
         }
     }
 </script>
@@ -24,7 +42,10 @@
     <header>
         <h2>RATE ME???</h2>
     </header>
-    <form>
+    <form on:submit|preventDefault={handleSubmit}>
+        <RatingSelect 
+        on:rating-select={handleSelect}/>
+        <!-- bind:value={rating}  -->
         <div class="input-group">
             <input 
             on:input={handleInput}
