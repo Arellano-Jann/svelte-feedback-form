@@ -1,6 +1,7 @@
 <script>
-    import {v4 as uuidv4} from 'uuid';
     import { createEventDispatcher } from 'svelte';
+    import {v4 as uuidv4} from 'uuid';
+    import { FeedbackStore } from "../stores";
     import Card from "./Card.svelte";
     import Button from "./Button.svelte";
     import RatingSelect from "./RatingSelect.svelte";
